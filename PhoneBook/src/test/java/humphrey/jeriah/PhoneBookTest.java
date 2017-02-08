@@ -87,5 +87,20 @@ public class PhoneBookTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void reverseLookUpTest(){
+        newBook.addEntry("Don", "098-765-4321");
+        newBook.addEntry("John", "123-456-7890");
+        newBook.addEntry("Mike", "123-455-7266");
+        assertEquals("Mike", newBook.reverseLookup("123-455-7266"));
+    }
+    @Test
+    public void reverseLookUpNonexistantNumberTest(){
+        newBook.addEntry("Don", "098-765-4321");
+        newBook.addEntry("John", "123-456-7890");
+        newBook.addEntry("Mike", "123-455-7266");
+        assertEquals(null, newBook.reverseLookup("123-465-3466"));
+    }
+
 
 }

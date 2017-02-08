@@ -6,47 +6,54 @@ import java.util.*;
  */
 public class PhoneBook {
 
-     TreeMap <String, String> phoneBook = new TreeMap();
+    TreeMap<String, String> phoneBook = new TreeMap();
 
 
-     public String lookUp(String key){
-         return phoneBook.get(key);
-     }
+    public String lookUp(String key) {
+        return phoneBook.get(key);
+    }
 
-     public void addEntry (String name, String number){
-         phoneBook.put(name, number);
+    public void addEntry(String name, String number) {
+        phoneBook.put(name, number);
 
-     }
+    }
 
-     public TreeMap getMap(){
-         return phoneBook;
-     }
+    public TreeMap getMap() {
+        return phoneBook;
+    }
 
-     public String listNames() {
-                  String list="";
-         for (Map.Entry<String, String> entries : phoneBook.entrySet()
-                 ) {
-              list += "Name: " + entries.getKey() + ", ";
+    public String listNames() {
+        String list = "";
+        for (Map.Entry<String, String> entries : phoneBook.entrySet()) {
+            list += "Name: " + entries.getKey() + ", ";
+        }
+        System.out.println(list);
+        return list;
+    }
 
-         }
-         System.out.println(list);
-         return list;
-     }
+    public String listEntries() {
+        String list = "";
+        for (Map.Entry<String, String> entries : phoneBook.entrySet()) {
+            list += "Name: " + entries.getKey() + " - Number: " + entries.getValue() + "| ";
 
-     public String listEntries(){
-            String list="";
-         for (Map.Entry<String, String> entries : phoneBook.entrySet()
-                 ) {
-             list += "Name: " + entries.getKey() + " - Number: " + entries.getValue() + "| ";
-
-         }
-         System.out.println(list);
-         return list;
-     }
+        }
+        System.out.println(list);
+        return list;
+    }
 
 
     public void remove(String key) {
-          phoneBook.remove(key);
+        phoneBook.remove(key);
 
+    }
+
+    public String reverseLookup(String number) {
+        ;
+        for (Map.Entry<String, String> entries : phoneBook.entrySet()) {
+            if(entries.getValue().equals(number)){
+                return entries.getKey();
+            }
+        }
+        return null;
     }
 }
