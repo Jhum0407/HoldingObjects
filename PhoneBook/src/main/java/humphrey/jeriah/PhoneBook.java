@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class PhoneBook {
 
-    TreeMap<String, String> phoneBook = new TreeMap();
+    private TreeMap<String, String> phoneBook = new TreeMap();
 
 
     public String lookUp(String key) {
